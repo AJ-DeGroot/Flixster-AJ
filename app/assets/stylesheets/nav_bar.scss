@@ -1,12 +1,32 @@
 @import "bootstrap";
 
-.navbar {
+.blur-nav {
 	box-shadow: 0px 0px 6px #2a2a2a;
 	background: image_url('nav_bar.png');
 }
 
+
 .navbar a.navbar-brand {
 	font-family: "Helvetica Neue", Helvetica;
 	font-weight: 600;
-	color: #1296b7 !important;
+	color: #1296b7;
+}
+
+.nav-link {
+	background: rgba(0, 0, 0, 0.05);
+}
+
+.navbar-light .navbar-nav .link-hover .nav-link:hover {
+	background: rgba(0, 0, 0, .4);
+	color: white;
+}
+
+.navbar-light .navbar-nav .link-hover .nav-link {
+	font-family: "Helvetica Neue", Helvetica;
+	color: #555;
+}
+
+.nav-link:hover {
+	background: rgba(0, 0, 0, .4);
+	color: white;
 }
