@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body id="full-page">
   	<%= render "/layouts/navbar.html.erb" %>
     <%if notice.present? %>
       <p class="alert alert-info"><%= notice %></p>
@@ -16,7 +16,7 @@
     <%if alert.present? %>
       <p class="alert alert-}danger"><%= alert %></p>
     <% end %>
-
     <%= yield %>
+    <%= render "/layouts/footer.html.erb" %>
   </body>
 </html>

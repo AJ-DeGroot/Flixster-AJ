@@ -1,6 +1,12 @@
-@import "bootstrap";
+#fixed-header {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 9999;
+}
 
-.blur-nav {
+.navbar {
 	box-shadow: 0px 0px 6px #2a2a2a;
 	background: image_url('nav_bar.png');
 }
