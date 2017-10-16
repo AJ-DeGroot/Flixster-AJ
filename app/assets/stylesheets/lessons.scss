@@ -1,3 +1,27 @@
 // Place all the styles related to the lessons controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.lesson {
+	margin-top: 10px;
+	background-color: rgba(50, 50, 50, .4);
+	height: 100px;
+}
+
+.section {
+	background-color: rgba(40, 40, 40, .1);
+	padding: 20px;
+}
+
+.lesson a{
+	color: #ddd;
+	font-family: "Helvetica Neue", Helvetica;
+	font-weight: 100;
+	font-size: 15px;
+}
+
+.lesson a b {
+	font-weight: 100;
+	font-size: 25px;
+	color: white;
+}
