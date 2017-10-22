@@ -20,6 +20,7 @@ gem 'figaro', '~> 1.0.0'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'carrierwave-aws'
+gem 'stripe'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
