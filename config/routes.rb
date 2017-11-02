@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :lessons, only: %i[show]
   namespace :instructor do
+    resources :lessons, only: %i[update]
   	resources :sections, only: %i[] do
 	   	resources :lessons, only: %i[new create]
   	end
