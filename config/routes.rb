@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   namespace :instructor do
     resources :lessons, only: %i[update]
   	resources :sections, only: %i[update] do
-	   	resources :lessons, only: %i[new create]
+	   	resources :lessons, only: %i[create]
   	end
   	resources :courses, only: %i[new create show] do
-  		resources :sections, only: %i[new create]
+  		resources :sections, only: %i[create]
   	end
   end
 end
