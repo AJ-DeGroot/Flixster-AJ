@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: flixster_production
-  username: flixster
-  password: <%= ENV['FLIXSTER_DATABASE_PASSWORD'] %>
+  # username: flixster
+  # password: <%= ENV['FLIXSTER_DATABASE_PASSWORD'] %>
