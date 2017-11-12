@@ -40,9 +40,17 @@
 		<br />
 	</div class='clr'>
 
-	<div class="col-sm-8 offset-sm-2 col-12">
+	<div class="col-12">
 		<%= @course.description %>
 	</div>
+
+	<div class='col-12'>
+		<% if current_user && current_user == @course.user %>
+			<%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large float-right' %>
+			<br class='clr' />
+		<% end %>
+	</div>
+	
 	<br />
 
 	<div class="col-12 sections">
@@ -68,13 +76,4 @@
 			</div>
 		<% end %>
 	</div>
-
-	<div class='col-10 offset-1'>
-			<% if current_user && current_user == @course.user %>
-				<br />
-				<br />
-				<%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large float-right' %>
-				<br class='clr' />
-			<% end %>
-		</div>
 </div>
