@@ -12,9 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  */
 
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 .clr {
 	clear: both;

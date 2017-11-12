@@ -4,8 +4,9 @@
 	<h1><%= @course.title %></h1>
 	<%= image_tag @course.image, class: 'img-fluid' %>
 	<br />
-	<div class="row">
-		<div class="col-sm-4 col-12">
+	<br />
+	<div>
+		<div class="col-sm-4 offset-sm-4 col-12">
 			<span class="badge badge-default">
 				<% if @course.cost.nil? || @course.cost.zero? %>
 					<%= 'FREE' %>
@@ -14,35 +15,65 @@
 				<% end %>
 			</span>
 		</div>
-		<div class="col-sm-8 col-12">
-			<%= @course.description %>
-		</div>
 		<br />
-	</div>
+		<% if current_user %>
+			<% if current_user.enrolled_in?(@course) %>
+				<h3 class='badge badge-info'>You are enrolled</h3>
+			<% else %>
+		    <% if @course.free? %>
+		      <%= link_to 'Enroll', course_enrollments_path(@course), class: 'btn btn-primary', method: :post %>
+		    <% else %>
+<!-- 		      <%= form_tag course_enrollments_path(@course) do %>
+		        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+	            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+	            data-email="<%= current_user.email %>"
+	            data-description="<%= @course.title %> (<%= number_to_currency @course.cost %>)"
+	            data-amount="<%= (@course.cost * 100).to_i %>"
+	            data-locale="auto"></script>
+	        <% end %> -->
+	      <% end %>
+	    <% end %>
+	  <% else %>
+	    <h3 class="badge badge-info">Sign In to Enroll</h3>
+		<% end %>
+		<br />
+		<br />
+	</div class='clr'>
 
 	<div class="col-12">
-		<% @course.sections.each do |section| %>
+		<%= @course.description %>
+	</div>
+
+	<div class='col-12'>
+		<% if current_user && current_user == @course.user %>
+			<%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large float-right' %>
+			<br class='clr' />
+		<% end %>
+	</div>
+	
+	<br />
+
+	<div class="col-12 sections">
+		<% @course.sections.rank(:row_order).each do |section| %>
+		<br /><br />
 			<div class="section">
-				<%= section.title %>
-				<% section.lessons.each do |lesson| %>
-					<div class="lesson">
-						<%= link_to lesson_path(lesson) do %>
-							<b><%= lesson.title %></b>
-							-
-							<%= lesson.subtitle %>
-						<% end %>
-					</div>
-				<% end %>
+				<h3> <%= section.title %> </h3>
+				<div class="row">
+					<% section.lessons.rank(:row_order).each do |lesson| %>
+						<div class="col-12 col-sm-6">
+							<div class="lesson text-center">
+								<br />
+								<%= link_to lesson_path(lesson) do %>
+									<b><%= lesson.title %></b>
+									<br />
+									<%= lesson.subtitle %>
+								<% end %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+				<br class="clr" />
 			</div>
 		<% end %>
 	</div>
-
-	<div class='col-10 offset-1'>
-			<% if current_user && current_user == @course.user %>
-				<br />
-				<br />
-				<%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large float-right' %>
-				<br class='clr' />
-			<% end %>
-		</div>
 </div>

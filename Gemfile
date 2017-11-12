@@ -13,6 +13,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 
+gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
@@ -20,6 +21,11 @@ gem 'figaro', '~> 1.0.0'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'carrierwave-aws'
+gem 'stripe'
+gem 'ranked-model'
+gem 'jquery-ui-rails'
+gem 'rubocop'
+ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'

@@ -1,7 +1,33 @@
 <div id="footer">
-	<div class="offset-2 col-8">
-		<b>Teachers</b>
-		<br />
-		<%= link_to 'Teach a Course', new_instructor_course_path %>
-	</div>
-</div>
+  <div class="row">
+  	<div class="col-12 col-sm-3 text-center">
+  		<b>Teachers</b>
+  		<br />
+  		<%= link_to 'Teach a Course', new_instructor_course_path %>
+      <br/>
+      <%= link_to 'My Dashboard', dashboard_path %>
+  	</div>
+    <div class="col-12 col-sm-3 text-center">
+      <b>About</b>
+      <br />
+      <%= link_to 'Team', team_path %>
+      <br/>
+      <%= link_to 'Privacy', privacy_path %>
+    </div>
+    <div class="col-12 col-sm-3 text-center">
+      <b>Contact</b>
+      <br />
+      AJ De Groot
+      <br />
+      alan.michael.degroot@gmail.com
+    </div>
+    <div class="col-12 col-sm-3 text-center social">
+      <b>Social</b>
+      <br/>
+      <%= link_to 'https://github.com/AJ-DeGroot' do %>
+        <span class="fa fa-github-square fa-2x social-button"></span>
+      <% end %>
+      <span class="fa fa-facebook-square fa-2x social-button"></span>
+      <span class="fa fa-twitter-square fa-2x social-button"></span>
+    </div>
+  </div>
