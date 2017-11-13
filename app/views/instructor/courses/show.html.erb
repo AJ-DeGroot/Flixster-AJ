@@ -35,6 +35,7 @@
 <br />
 <div class="col-10 offset-1">
   <h1 class="text-center"><%= current_course.title %></h1>
+  <%= current_course.image %>
   <br />
 
   <div class="text-center">
@@ -66,7 +67,6 @@
         <ul class="lessons">
           <% section.lessons.rank(:row_order).each do |lesson| %>
             <li data-update-url="<%= instructor_lesson_path(lesson) %>">
-
               <p>
               <span class = 'fa fa-ellipsis-v'></span>
                 <b><%= lesson.title %></b>
