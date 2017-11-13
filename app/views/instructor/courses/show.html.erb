@@ -35,7 +35,7 @@
 <br />
 <div class="col-10 offset-1">
   <h1 class="text-center"><%= current_course.title %></h1>
-  <%= current_course.image %>
+  <%= image_tag @course.image, class: 'img-fluid' %>
   <br />
 
   <div class="text-center">
